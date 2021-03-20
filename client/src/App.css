@@ -78,6 +78,10 @@
   color: #14213d;
 }
 
+.text-font-c{
+  font-size: 0.8vw;
+}
+
 @media screen and (max-width: 768px) {
   .headerImage{
     height: 25vw;
@@ -95,6 +99,14 @@
 
   .brandImageSize{
     width: auto;
+    margin: 0.5vw 3vw;
+    padding: 0.5vw;
+  }
+
+  .brandImageSize2{
+    max-width: 10%;
+    width: 10%;
+    height: 10%;
     margin: 0.5vw 3vw;
     padding: 0.5vw;
   }

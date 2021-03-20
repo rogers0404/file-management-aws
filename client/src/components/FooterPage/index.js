@@ -29,6 +29,11 @@ function FooterPage() {
             </a>
           </div>
         </div>
+        <div className="p-1 m-3 d-flex justify-content-end w-75 align-items-center">
+          <div>
+              &copy; 2021 iT Solutions. 
+          </div>
+        </div>
     </footer>
   );
 }

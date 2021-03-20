@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
 import { validateEmail } from '../../utils/helpers';
+import photo1 from '../../assets/jean.png'
+import photo2 from '../../assets/fotoProfile.jpeg'
+import linkedin1 from '../../assets/linkedin.png'
 
 function ContactForm() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -39,15 +42,21 @@ function ContactForm() {
   return (
     <section className="my-1">
         <div className="d-flex justify-content-center">
+
             <div className="card text-center w-75 d-flex justify-content-center">
                 <div className="card-header m-1 textFontColor font-weight-bold">Contact</div>
                 <div className="card-body">
-
                 <div className="card-deck textFontColor">                        
                     <div className="card">
                       <div className="card-body justify-content-left m-0 text-sm-left">
-                          <form id="contact-form" onSubmit={handleSubmit}>
-                              <div className="w-100 row m-0 textFontColor">
+                          <form id="contact-form" onSubmit={handleSubmit}>                              
+                                <div>
+                                    <h4 className="text-center w-100">Let's Discuss your Questions</h4>
+                                    <p className="text-font-c text-center w-100">Please fill in the form below and we will 
+                                    contact you for more details
+                                    </p> 
+                                </div>
+                                <div className="w-100 row m-0 textFontColor">                                  
                                   <div className="w-25 small-text textFontColor" >
                                       <label htmlFor="name">Name </label>
                                   </div>
@@ -82,21 +91,58 @@ function ContactForm() {
                   </div>
                   <div className="card textFontColor">
                       <div className="card-body justify-content-left">
-                        <div className="w-100 textFontColor">
-                            <h1>Rogers Ramirez</h1>
-                        </div>
+                          <div className="w-100 textFontColor">
+                              <h1>iT Solutions</h1>
+                          </div>
                         <div className="w-100 textFontColor">
                             <p>Any questions? Let me know and I'll be happy to talk to you!</p>
                         </div>
                         <div className="w-100 textFontColor">
                             <p>email: <a href="mailto:rogers.ramirez2008@gmail.com">rogers.ramirez2008@gmail.com</a></p>
-                            <p>cel: 407-955-6604</p>
+                            <p>email: <a href="mailto: marvaljhg@gmail.com"> marvaljhg@gmail.com</a></p>
                         </div>
+                      </div>                    
                   </div>
                 </div>
+
+                <div><p><br/></p></div>
+                
+                <div className="card text-center d-flex justify-content-center">
+                  <div className="card-header m-1 textFontColor font-weight-bold">Our Team</div>
+                    <div className="card-body">
+                      <div className="card-deck textFontColor">
+                        <div className="card textFontColor">
+                              <img className="card-img-top rounded-circle" src={photo1} alt="jean" />
+                              <div className="card-body justify-content-left">
+                                  <h5 className="card-title">Jean</h5>
+                                  <p className="card-text">Chief Technology Officer</p>
+                                <div className=" card-footer w-100 textFontColor">
+                                  <a className="text-white" href="https://linkedin.com/in/jean-carlos-marval" target="blank">
+                                    <img className="img-fluid brandImageSize2 w-25" src={linkedin1} alt="Jean"/>
+                                  </a>
+                                </div>
+                              </div>                    
+                          </div>
+
+                          <div className="card textFontColor">
+                              <img className="card-img-top rounded-circle" src={photo2} alt="rogers" />
+                              <div className="card-body justify-content-left">
+                                  <h5 className="card-title">Rogers</h5>
+                                  <p className="card-text">Business Development Manager</p>
+                                <div className=" card-footer w-100 textFontColor">
+                                  <a className="text-white" href="https://www.linkedin.com/in/rogers-ramirez-496a66b6" target="blank">
+                                    <img className="img-fluid brandImageSize2 w-25" src={linkedin1} alt="rogers"/>
+                                  </a>
+                                </div>
+                              </div>                    
+                          </div>
+                    </div>
+                  </div>
                 </div>
+
               </div>
               </div>
+            
         </div>
 
         

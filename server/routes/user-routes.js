@@ -3,14 +3,14 @@ const router = express.Router();
 const AWS = require("aws-sdk");
 const awsConfig = {
   region: "us-east-2",
-  //endpoint: "http://localhost:8000",
+  endpoint: "http://localhost:8000",
 
 };
 AWS.config.update(awsConfig);
 const dynamodb = new AWS.DynamoDB.DocumentClient();
-const table = "Thoughts";
+const table = "User";
 
-// get all users' thoughts
+// get all users'
 router.get('/users', (req, res) => {
   const params = {
     TableName: table,
@@ -26,22 +26,22 @@ router.get('/users', (req, res) => {
 })
 
 // get thoughts from a user
-// get thoughts from a user
 router.get('/users/:username', (req, res) => {
-  console.log(`Querying for thought(s) from ${req.params.username}.`);
+  console.log(`Querying for user(s) from ${req.params.username}.`);
   const params = {
     TableName: table,
     KeyConditionExpression: "#un = :user", 
     ExpressionAttributeNames: {
       "#un": "username",
       "#ca": "createdAt",
-      "#th": "thought",
-      "#img": "image"    // add the image attribute alias
+      "#em": "email",
+      "#va": "validationCode"//,
+      //"#img": "image"    // add the image attribute alias
     },
     ExpressionAttributeValues: {
       ":user": req.params.username
     },
-    ProjectionExpression: "#un, #th, #ca, #img", // add the image to the database response
+    ProjectionExpression: "#un, #va, #ca, #em",// #img", // add the image to the database response
     ScanIndexForward: false  // false makes the order descending(true is default)
   };
   // database call ..
@@ -58,15 +58,15 @@ router.get('/users/:username', (req, res) => {
 });
 
 // Create new user
-// Create new user
 router.post('/users', (req, res) => {
   const params = {
     TableName: table,
     Item: {
       "username": req.body.username,
       "createdAt": Date.now(),
-      "thought": req.body.thought,
-      "image": req.body.image  // add new image attribute
+      "password": req.body.password,
+      "email": req.body.email,
+      "validationCode": req.body.validationCode  // add new attribute
     }
   };
   // ... database call
